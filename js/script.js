@@ -20,7 +20,6 @@ function Calcular() {
     let n1 = parseInt(document.getElementById("n1").value);
     let n2 = parseInt(document.getElementById("n2").value);
     let op = document.getElementById("op").value;
-    let resul;
     switch (op) {
         case '+':
             soma(n1, n2, op)
@@ -32,7 +31,11 @@ function Calcular() {
             mult(n1, n2, op)
             break
         case '/':
-            divi(n1, n2, op)
+            if (n2 == 0) {
+                document.getElementById("resul").innerHTML = "Não Existe divisão por 0"
+            } else {
+                divi(n1, n2, op)
+            }
             break
         default:
             document.getElementById("resul").innerHTML = "Opção Inválida!"
